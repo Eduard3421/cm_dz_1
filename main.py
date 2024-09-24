@@ -78,6 +78,8 @@ class ShellEmulator:
                 self.output_area.see(tk.END)
 
     def execute_command(self, command):
+        user_prompt = f"{self.username}@{self.hostname}:~$ {command}\n"
+        self.output_area.insert(tk.END, user_prompt)
         self.output_area.insert(tk.END, command + '\n')
         self.output_area.see(tk.END)
         if command.startswith('cd '):
